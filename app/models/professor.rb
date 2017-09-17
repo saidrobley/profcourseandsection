@@ -1,3 +1,5 @@
 class Professor < ApplicationRecord
-  has_many :sections
+  has_many :sections, :dependent => :destroy
+  validates_uniqueness_of :name
+
 end
