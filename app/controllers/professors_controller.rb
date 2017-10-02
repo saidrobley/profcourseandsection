@@ -4,9 +4,13 @@ class ProfessorsController < ApplicationController
   # GET /professors
   # GET /professors.json
   def index
-    @professors = Professor.all
+  #  @professors = Professor.all
+   @professors = if params[:search]
+     Professor.where('name Like ?', "%#{params[:search]}%")
+   else
+     Professor.all
   end
-
+end
   # GET /professors/1
   # GET /professors/1.json
   def show
@@ -69,6 +73,6 @@ class ProfessorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def professor_params
-      params.require(:professor).permit(:name)
+      params.require(:professor).permit(:name, :search)
     end
 end
