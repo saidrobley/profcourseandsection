@@ -6,11 +6,14 @@
   <span style="display:inline-block; width:100px;"></span>
 
 
-  <strong>Sections:</strong><br>
+  <strong>Sections:</strong>
+  <span style="display:inline-block; width:100px;"></span>
+  <strong>Courses:</strong><br>
 
   <% @professor.sections.each do |section| %>
       <span style="display:inline-block; width:270px;"></span>
-      <%= section.number %><br>
+      <%= section.number %> <span style="display:inline-block; width:120px;"></span><%= section.course.name %><br>
+
   <% end %><br>
 
 
