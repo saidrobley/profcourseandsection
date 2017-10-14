@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1>Student</h1>
+<h3><%= @student.name %></h3>
+<table class="pretty-table">
+  <thead>
+    <tr >
+      <th scope="col">Section</th>
+      <th scope="col">Course</th>
+      <th scope="col">Professor</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @student.enrollments.each do |enrollment| %>
+      <tr>
+        <td><%= enrollment.section.number %></td>
+        <td><%= enrollment.section.course.name %></td>
+        <td><%= enrollment.section.professor.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
