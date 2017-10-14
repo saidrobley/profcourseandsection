@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<table class="pretty-table">
+  <thead>
+    <tr>
+      <td>Section</td>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= @enrollment.section.number %></td>
+    <td><%= @enrollment.student.name %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
+<%= link_to 'Back', enrollments_path %>
