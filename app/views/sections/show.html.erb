@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
-  <%= @section.number %>
-</p>
 
-<p>
-  <strong>Semester:</strong>
-  <%= @section.semester %>
-</p>
+<table class="pretty-table">
+  <thead>
+    <tr>
+      <td>Section Number</td>
+      <td>Course</td>
+      <td>Semester</td>
+      <td>Room</td>
+      <td>Professor</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @section.number %></td>
+      <td><%= @section.course.name%></td>
+      <td><%= @section.semester%></td>
+      <td><%= @section.room %></td>
+      <td><%= @section.professor.name%></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Room:</strong>
-  <%= @section.room %>
-</p>
-
-<p>
-  <strong>Professor:</strong>
-  <%= @section.professor.name %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @section.course.name %>
-</p>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>

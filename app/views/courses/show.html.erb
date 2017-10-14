@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h1>Course:</h1>
-  <strong>Name:</strong>
-  <strong><%= @course.name %></strong>
-  <span style="display:inline-block; width:100px;"></span>
-  <strong>Sections:</strong><br>
-  <% @course.sections.each do |section| %>
-      <span style="display:inline-block; width:230px;"></span><%= section.number %><br>
-  <% end %><br>
+  <h3>Course</h3>
+  <table class="pretty-table">
+    <thead>
+      <tr>
+        <td><%= @course.name %></td>
+        <td>Section(s)</td>
+      </tr>
+    </thead>
+    <tbody>
+        <% @course.sections.each do |section| %>
+        <tr>
+          <td></td>
+          <td><%= section.number %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
 
 
 <%= link_to 'Edit', edit_course_path(@course) %> |

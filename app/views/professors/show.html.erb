@@ -1,21 +1,32 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <h1>Professor:</h1>
-  <strong>Name:</strong>
-  <strong><%= @professor.name %></strong>
-  <span style="display:inline-block; width:100px;"></span>
 
-
-  <strong>Sections:</strong>
-  <span style="display:inline-block; width:100px;"></span>
-  <strong>Courses:</strong><br>
-
-  <% @professor.sections.each do |section| %>
-      <span style="display:inline-block; width:270px;"></span>
-      <%= section.number %> <span style="display:inline-block; width:120px;"></span><%= section.course.name %><br>
-
-  <% end %><br>
-
+  <h1>Professor</h1>
+  <h3><strong>Name: <%= @professor.name %></strong></h3>
+  <table class="pretty-table">
+    <thead>
+      <tr >
+        <th scope="col">Section</th>
+        <th scope="col">Course</th>
+        <th scope="col">Student(s)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @professor.sections.each do |section| %>
+        <tr>
+          <td><%= section.number %></td>
+          <td><%= section.course.name %></td>
+          <td>Name</td>
+        </tr>
+          <% section.enrollments.each do |enrollment| %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><%= enrollment.student.name %></td>
+          </tr>
+          <% end %>
+      <% end %>
+    </tbody>
+  </table>
 
 
 
